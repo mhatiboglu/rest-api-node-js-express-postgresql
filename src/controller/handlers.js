@@ -1,10 +1,11 @@
-import db from "../config/db.js";
+import postgresql from "../config/db.js";
 
-class postgresql {
+class postgresqlDb {
+    
     //get all the countries, their fifa rankings and the average age of their player.
     async getCountries() {
         try {
-            const results = await db.query(`SELECT c.country, ROUND(AVG(c.fifa_ranking)) as rank, ROUND(AVG(age)) AS average_age
+            const results = await postgresql.query(`SELECT c.country, ROUND(AVG(c.fifa_ranking)) as rank, ROUND(AVG(age)) AS average_age
                                         FROM players p INNER
                                         JOIN countries c
                                         ON c.country= p.country
@@ -26,7 +27,7 @@ class postgresql {
             if (isRateNan) errors.push(`Rate is required and must be valid number.`)
             if (countryData.country === null || countryData.country === undefined) errors.push('Country name is required.')
 
-            await db.query(`INSERT INTO countries (country, fifa_ranking) VALUES ($1, $2)`, [this.capitalizeFirstCharacters(countryData.country), countryData.fifaRanking])
+            await postgresql.query(`INSERT INTO countries (country, fifa_ranking) VALUES ($1, $2)`, [this.capitalizeFirstCharacters(countryData.country), countryData.fifaRanking])
             return { createdCountryName: `${this.capitalizeFirstCharacters(countryData.country)}`, errors };
 
         } catch (error) {
@@ -70,7 +71,7 @@ class postgresql {
                 return { result: 'error', errors };
             } else {
                 const values = `${insertValues.join(', ')}`
-                await db.query(`INSERT INTO players (name, country, age) VALUES ${values}`)
+                await postgresql.query(`INSERT INTO players (name, country, age) VALUES ${values}`)
 
                 return { result: 'success', errors }
             }
@@ -88,7 +89,7 @@ class postgresql {
     }
 
     async isCountryExist(countryName) {
-        const recordedCountries = await db.query("SELECT DISTINCT(country) FROM countries")
+        const recordedCountries = await postgresql.query("SELECT DISTINCT(country) FROM countries")
 
         return (recordedCountries.rows.some(item => {
             return item.country === this.capitalizeFirstCharacters(countryName)
@@ -96,4 +97,4 @@ class postgresql {
     }
 }
 
-export default postgresql
+export default postgresqlDb
