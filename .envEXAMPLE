@@ -1,0 +1,5 @@
+    POSTGRESQL_USER = 
+    POSTGRESQL_PASSWORD = 
+    POSTGRESQL_HOST = fifa-database-1.c27k5yd9sicz.eu-west-2.rds.amazonaws.com
+    POSTGRESQL_DB = fifadb
+    POSTGRESQL_PORT = 5432 
