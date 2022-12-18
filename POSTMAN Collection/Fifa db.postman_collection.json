@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "9a59f5a8-2f6a-4b21-be8c-3122d18215e3",
+		"name": "Fifa db",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16042155"
+	},
+	"item": [
+		{
+			"name": "Get Countries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/countries",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"countries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Country",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"countryData\" :{\"country\" : \"Turkey\", \"fifaRanking\" : 4}}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/country",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"country"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Players",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"newPlayersData\" :[\r\n    {\"name\":\"Muharrem\", \"country\":\"France\", \"age\":\"32\"},\r\n    {\"name\":\"John\", \"country\":\"Turkey\", \"age\":\"35\"}\r\n]}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/players",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"players"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
