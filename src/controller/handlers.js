@@ -10,7 +10,13 @@ class postgresqlDb {
                                         JOIN countries c
                                         ON c.country= p.country
                                         GROUP BY c.country`)
-            return { countries: results.rows }
+            let resultsWithInt = []
+            for(let result of results.rows){
+                if(parseInt(result.rank)!==NaN) result.rank =  parseInt(result.rank)
+                if(parseInt(result.average_age)!==NaN) result.average_age =  parseInt(result.average_age)
+                resultsWithInt.push(result)
+            }
+            return { countries: resultsWithInt }
         } catch (error) {
             console.log(`Error on getCountries function:\n Error: ${JSON.stringify(error.message)} `)
             throw error
