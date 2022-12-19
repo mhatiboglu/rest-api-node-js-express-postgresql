@@ -41,9 +41,9 @@ SELECT name AS "Player Name", country AS "Player Team", age AS "Age" FROM player
 - I created and added an import file for POSTMAN collection. You can use this collection for testing API rouetes.
 (Please check POSTMAN Collection folder.) (https://www.postman.com/downloads/)
 
-![alt text](https://i.ibb.co/mRxY4bj/New-Bitmap-Image.png?raw=true)
+![alt text](https://i.ibb.co/v1BXpcR/New-Bitmap-Image.png?raw=true)
 
-![alt text](https://i.ibb.co/G3XcDyr/New-Bitmap-Image-2.png?raw=true)
+![alt text](https://i.ibb.co/gdP1XSG/New-Bitmap-Image-2.png?raw=true)
 
 ![alt text](https://i.ibb.co/mq335bj/New-Bitmap-Image-3.png?raw=true)
 
