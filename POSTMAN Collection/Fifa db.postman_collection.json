@@ -70,7 +70,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"newPlayersData\" :[\r\n    {\"name\":\"Muharrem\", \"country\":\"France\", \"age\":\"32\"},\r\n    {\"name\":\"John\", \"country\":\"Turkey\", \"age\":\"35\"}\r\n]}"
+					"raw": "{\"newPlayersData\" :[\r\n    {\"name\":\"Muharrem\", \"country\":\"France\", \"age\":\"32\"},\r\n    {\"name\":\"John\", \"country\":\"France\", \"age\":\"35\"}\r\n]}"
 				},
 				"url": {
 					"raw": "http://localhost:4000/players",
