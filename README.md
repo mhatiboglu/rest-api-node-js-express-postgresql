@@ -3,14 +3,30 @@
 
 ### Getting Started
 
+### Run the app locally
+```
+git clone https://github.com/mhatiboglu/rest-api-node-js-express-postgresql.git
+```
+```
+docker compose up
+```
 ### Setup DB
 
-- I created a postgresql database on AWS RDS to facilitate the testing process and environment preparation.
-
 - You can check this database with pgAdmin or a similar tool and make queries.
-https://www.pgadmin.org/download/
+Using your browser, you can now type either of the following: http://localhost:8080 or http://127.0.0.1:8080.
 
-(I will send you the necessary information to access the database in question by e-mail.)
+Email: admin@admin.com
+Password: secret
+
+Click 'Add New Server'
+
+Connection Credentials:
+
+Host Name : node_db
+Port : 5432
+Username : omnicomFifa
+Password : omnicom1234   
+
 
 - For countries table representation;
 ```
@@ -22,18 +38,6 @@ SELECT country AS Country, fifa_ranking AS "Fifa Ranking" FROM countries
 SELECT name AS "Player Name", country AS "Player Team", age AS "Age" FROM players
 ```
 ![alt text](https://i.ibb.co/422w5T6/thumbnail-Screenshot-2022-12-19-at-07-51-17.png?raw=true)
-
-### Run the app locally
-
-- git clone https://github.com/mhatiboglu/rest-api-node-js-express-postgresql.git
-
-- Please go to .envDELETE file and rename it as .env and add POSTGRESQL_USER and POSTGRESQL_PASSWORD values from my email.
-```
-- `npm install`
-```
-```
-- `npm run dev` - This will start the application in development mode
-```
 
 
 ### Test the app locally

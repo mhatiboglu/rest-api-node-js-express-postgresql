@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  node_backend:
+    container_name: docker-rest
+    image: docker-rest:0.0.3
+    build:
+      context: .
+    ports:
+      - "4000:4000"
+    environment:
+      - EXT_PORT=4000
+      - POSTGRESQL_USER=omnicomFifa
+      - POSTGRESQL_PASSWORD=omnicom1234
+      - POSTGRESQL_DB=fifadb
+      - POSTGRESQL_HOST=node_db
+      - POSTGRESQL_PORT=5432
+    depends_on:
+      - node_db
+  node_db:
+    container_name: node_db
+    image: "postgres:12"
+    ports:
+     - '5432:5432'
+    environment:
+      - POSTGRES_USER=omnicomFifa
+      - POSTGRES_PASSWORD=omnicom1234
+      - POSTGRES_DB=fifadb
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4:5.5
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: secret
+      PGADMIN_LISTEN_PORT: 80
+    ports:
+      - "8080:80"
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+volumes:
+  db-data:
+  pgadmin-data:
